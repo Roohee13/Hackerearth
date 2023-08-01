@@ -1,0 +1,22 @@
+ static long solve(int N, int start, int finish, int[] Ticket_cost){
+       // Write your code here 
+       long result = 0;
+
+        long cost1=0L;
+
+        long cost2=0L;
+
+        for(int i=(start-1)%N; i!=finish-1; i= (i+1)%N){
+
+            cost1= cost1 + Ticket_cost[i];
+
+        }        for(int i=(finish-1)%N; i!=start-1; i=(i+1)%N){
+
+            cost2 += Ticket_cost[i];
+
+        }
+
+        result = Math.min(cost1, cost2);
+
+        return result;   
+    }
